@@ -1,10 +1,13 @@
+# python3
+
 from collections import namedtuple
 
 Bracket = namedtuple("Bracket", ["char", "position"])
 
-# changed the are_matching function to check individual bracket closures
+
 def are_matching(left, right):
-    return left == "(" and right == ")" or left == "[" and right == "]" or left == "{" and right == "}"
+    return (left + right) in ["()", "[]", "{}"]
+
 
 def find_mismatch(text):
     opening_brackets_stack = []
@@ -26,4 +29,11 @@ def find_mismatch(text):
     return "Success"
 
 
-def main
+def main():
+    text = input()
+    mismatch = find_mismatch(text)
+    print(mismatch)
+
+
+if __name__ == "__main__":
+    main()
