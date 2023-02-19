@@ -30,7 +30,18 @@ def find_mismatch(text):
 
 
 def main():
-    text = input()
+    input_type = input().strip()
+    if input_type.isdigit() and int(input_type) in range(6):
+        test_number = input_type
+        test_path = "/workspaces/steks-un-iekavas-DanilaRezcikovs/test/" + test_number
+        with open (test_path, "r") as f:
+            text = f.read().strip()
+    elif input_type == "I":
+        text = input("Enter brackets: ")
+    else:
+        print("Invalid input type")
+        return
+
     mismatch = find_mismatch(text)
     print(mismatch)
 
